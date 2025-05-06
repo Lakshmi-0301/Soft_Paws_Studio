@@ -1,0 +1,59 @@
+body {
+  background-color: #f9e7e7;
+}
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+}
+
+.stock-warning {
+  color: red;
+  font-weight: bold;
+}
+
+/* Navbar Styling */
+nav {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+}
+
+.nav-left a,
+.nav-right a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+}
+
+.cart-button,
+.logout-button {
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.cart-button:hover,
+.logout-button:hover {
+  text-decoration: underline;
+}
+
+/* Pagination Fix */
+.pagination {
+  background-color: white !important;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.input-group {
+  color: white;
+}

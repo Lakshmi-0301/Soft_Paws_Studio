@@ -1,0 +1,76 @@
+/* Full-Screen Background */
+body {
+  background: url("https://i.pinimg.com/736x/fb/a5/d9/fba5d9bdebee56b8cd07acb4ec65e517.jpg")
+    no-repeat center center/cover;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Arial, sans-serif;
+}
+
+/* Grid Layout */
+.container {
+  max-width: 800px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  text-align: center;
+}
+
+/* Category Styling */
+.category {
+  position: relative;
+  height: 200px;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.category:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* Background Images for Each Category */
+.tops {
+  background: url("https://i.pinimg.com/736x/50/61/71/506171560d9ebedcaa4e0e6f8ca81d73.jpg")
+    no-repeat center center/cover;
+}
+.bottoms {
+  background: url("https://i.pinimg.com/736x/9c/d4/57/9cd457c8658865c01420bb32f1d09b45.jpg")
+    no-repeat center center/cover;
+}
+.dresses {
+  background: url("https://i.pinimg.com/736x/7b/82/2a/7b822a04c41dd0f49b3f39ebc8e9826c.jpg")
+    no-repeat center center/cover;
+}
+.accessories {
+  background: url("https://i.pinimg.com/736x/4b/f4/b6/4bf4b607680a4fd46a9d99e09f522ada.jpg")
+    no-repeat center center/cover;
+}
+
+/* Dark Overlay */
+.category::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+/* Text Styling */
+.category-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+  z-index: 2;
+}

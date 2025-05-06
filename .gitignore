@@ -1,0 +1,36 @@
+# Bytecode
+*.pyc
+__pycache__/
+
+# Virtual environments
+venv/
+env/
+ENV/
+.myenv/
+
+# Django static files collected (for deployment only)
+staticfiles/
+
+# Keep your own static/ directory
+!static/
+
+# Database (only if using SQLite)
+db.sqlite3
+
+# Django secret settings (optional, if you use env vars)
+.env
+
+# Editor/OS-specific
+.DS_Store
+.vscode/
+.idea/
+
+# Migrations (optional — keep if you want them in version control)
+**/migrations/*.py
+!**/migrations/__init__.py
+
+# Coverage / testing
+.coverage
+.coverage.*
+htmlcov/
+.pytest_cache/

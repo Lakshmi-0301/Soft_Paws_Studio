@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fashion Categories</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/contents.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <div
+        class="category tops"
+        onclick="location.href='{% url 'product_list' category='Tops' %}'"
+      >
+        <div class="category-text">Tops</div>
+      </div>
+      <div
+        class="category bottoms"
+        onclick="location.href='{% url 'product_list' category='Bottoms' %}'"
+      >
+        <div class="category-text">Bottoms</div>
+      </div>
+      <div
+        class="category dresses"
+        onclick="location.href='{% url 'product_list' category='Dresses' %}'"
+      >
+        <div class="category-text">Dresses</div>
+      </div>
+      <div
+        class="category accessories"
+        onclick="location.href='{% url 'product_list' category='Accessories' %}'"
+      >
+        <div class="category-text">Accessories</div>
+      </div>
+    </div>
+  </body>
+</html>

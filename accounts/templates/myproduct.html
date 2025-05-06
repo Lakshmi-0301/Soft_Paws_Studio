@@ -1,0 +1,128 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ product.product_name }}</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/myproduct.css' %}" />
+  </head>
+  <body>
+    <!-- Navigation Bar -->
+    <nav>
+      <div class="nav-left">
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'product_list' category='Tops' %}">Tops</a>
+        <a href="{% url 'product_list' category='Bottoms' %}">Bottoms</a>
+        <a href="{% url 'product_list' category='Dresses' %}">Dresses</a>
+        <a href="{% url 'product_list' category='Accessories' %}"
+          >Accessories</a
+        >
+      </div>
+      <div class="nav-right">
+        <a href="{% url 'view_cart' %}" class="cart-button">🛒 Cart</a>
+        <a href="{% url 'logout_user' %}" class="logout-button">Logout</a>
+      </div>
+    </nav>
+
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-md-6">
+          <img
+            src="{{ product.image }}"
+            alt="{{ product.product_name }}"
+            class="img-fluid"
+          />
+        </div>
+        <div class="col-md-6">
+          <h2>{{ product.product_name }}</h2>
+          <p><strong>Price:</strong> ${{ product.mrp }}</p>
+
+          {% if product.stock < 5 and product.stock > 0 %}
+          <p class="stock-warning">Only {{ product.stock }} left in stock!</p>
+          {% endif %} {% if product.stock > 0 %}
+          <div class="quantity-selector">
+            <label for="quantity"><strong>Quantity:</strong></label>
+            <div class="input-group mb-3" style="max-width: 120px">
+              <div class="input-group-prepend">
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button"
+                  onclick="decreaseQuantity()"
+                >
+                  -
+                </button>
+              </div>
+              <input
+                type="text"
+                class="form-control text-center"
+                id="display-quantity"
+                value="1"
+                readonly
+              />
+              <div class="input-group-append">
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button"
+                  onclick="increaseQuantity()"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-reviews">
+            <h4>Customer Reviews</h4>
+            {% for review in product.reviews.all %}
+            <div class="review">
+              <p>
+                <strong>{{ review.customer.username }}</strong> - ⭐{{review.rating }}/5
+              </p>
+              <p>{{ review.review_text }}</p>
+              <hr />
+            </div>
+            {% empty %}
+            <p>No reviews yet. Be the first to review this product!</p>
+            {% endfor %}
+          </div>
+
+          <form
+            id="cart-form"
+            method="POST"
+            action="{% url 'add_to_cart' product.product_id %}"
+          >
+            {% csrf_token %}
+            <input
+              type="hidden"
+              name="quantity"
+              id="quantity-input"
+              value="1"
+            />
+            <button class="btn btn-dark" type="submit">Add to Cart</button>
+          </form>
+          {% else %}
+          <p class="stock-warning">SORRY! OUT OF STOCK</p>
+          <button class="btn btn-dark" disabled>Add to Cart</button>
+          {% endif %}
+
+          <hr />
+          <h4>Product Info</h4>
+          <p><strong>Material:</strong> {{ product.material }}</p>
+          <p><strong>Color:</strong> {{ product.color }}</p>
+          <p><strong>Brand:</strong> {{ product.brand }}</p>
+          <p><strong>Category:</strong> {{ product.category }}</p>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/myproduct.js' %}"></script>
+  </body>
+</html>

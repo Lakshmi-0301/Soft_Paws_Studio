@@ -1,0 +1,64 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order History</title>
+
+    <link rel="stylesheet" href="{% static 'css/order_history.css' %}" />
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="left">
+        <a href="{% url 'home' %}"><i class="fa-solid fa-house"></i> Home</a>
+      </div>
+      <div class="right">
+        <a href="{% url 'view_cart' %}"
+          ><i class="fa-solid fa-shopping-cart"></i> Cart</a
+        >
+        <a href="{% url 'logout_user' %}"
+          ><i class="fa-solid fa-sign-out-alt"></i> Logout</a
+        >
+      </div>
+    </div>
+
+    <div class="container">
+      <h2>🛍️ Order History</h2>
+
+      <table>
+        <tr>
+          <th>Order ID</th>
+          <th>Product Name</th>
+          <th>Quantity</th>
+          <th>Order Date</th>
+          <th>Product Image</th>
+        </tr>
+
+        {% for order in orders %}
+        <tr>
+          <td>{{ order.id }}</td>
+          <td>{{ order.product_name }}</td>
+          <td>{{ order.quantity }}</td>
+          <td>{{ order.order_date }}</td>
+          <td>
+            <img
+              src="{{ order.product_image }}"
+              alt="{{ order.product_name }}"
+            />
+          </td>
+        </tr>
+        {% empty %}
+        <tr>
+          <td colspan="5" class="no-orders">No orders found.</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </body>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"
+    crossorigin="anonymous"
+  ></script>
+</html>
