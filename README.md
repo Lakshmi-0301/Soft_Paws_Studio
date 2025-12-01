@@ -4,6 +4,25 @@
 
 Soft Paws Studios is a fully functional online e-commerce platform specializing in trendy clothing items such as tops, bottoms, dresses, and accessories. Built using Django, HTML, CSS, JavaScript, and MySQL, the platform provides a seamless shopping experience for users, from browsing products to placing orders and leaving feedback.
 
+## FRONTEND PREVIEW
+###  Homepage
+<img src="Images/Homepage1.png" width="800">
+<img src="Images/Homepage2.png" width="800">
+
+### Category Showcase
+<img src="Images/BrowsingPage.png" width="800">
+
+### Product Listing Page
+<img src="Images/ProductsPage.png" width="800">
+
+### Product Details Page
+<img src="Images/ProductInfoPage.png" width="800">
+
+###  Shopping Cart Page
+<img src="Images/CartPage.png" width="800">
+
+###  Order History Page
+<img src="Images/OrderHistoryPage.png" width="800">
 ## Key Features
 
 * **User Authentication:** Secure registration and login functionality for individual user accounts.
