@@ -23,6 +23,7 @@ Soft Paws Studios is a fully functional online e-commerce platform specializing 
 
 ###  Order History Page
 <img src="Images/OrderHistoryPage.png" width="800">
+
 ## Key Features
 
 * **User Authentication:** Secure registration and login functionality for individual user accounts.
